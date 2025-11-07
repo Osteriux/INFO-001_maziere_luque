@@ -3,7 +3,7 @@
 > Xavier Mazière  
 > Mattéo Luque
 
-## Q1
+## Q1 - Principe de fonctionnement de RSA
 
 ### Chiffrement RSA
 
@@ -35,6 +35,16 @@ Où :
 
 La paire (d, n) constitue la clé privée utilisée pour le déchiffrement.
 
-## Q2
+## Q2 - Rôle de la méthode Diffie-Hellman
 
 Le rôle de la methode Diffie-Hellman est d'echanger une clé de manière sécurisé. Elle utilise des propriétés mathématiques des modulos pour permettre à deux parties de générer une clé secrète partagée, même si elles communiquent sur un canal non sécurisé.
+
+## Q3 - Informations importantes d'un certificat
+
+Un certificat numérique contient plusieurs informations importantes, notamment :
+
+- Le titulaire du certificat (personne ou organisation)
+- Le hash du certificat pour vérifier son intégrité
+- La clé publique associée au titulaire
+- La période de validité du certificat (date de début et date d'expiration)
+- L'autorité de certification qui a émis le certificat
