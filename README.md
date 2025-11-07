@@ -52,12 +52,12 @@ Un certificat numérique contient plusieurs informations importantes, notamment 
 ## Q4 - Étapes d'authentification HTTPS avec chaîne de certificats
 
 1. Bob se connecte en HTTPS à <www.alice.com>
-2. Le serveur envoie sa chaîne de certificats : Alice → ca1 → root-ca
-3. Bob vérifie que root-ca est dans son truststore
+2. Le serveur envoie son certificat, contenant celui de ca1
+3. Bob vérifie que l'issuer du certificat de ca1 est dans son truststore
 4. Bob vérifie la signature de ca1 avec la clé publique de root-ca
-5. Bob vérifie la validité et non-révocation de ca1
+5. Bob vérifie la validité et la non-révocation du certificat ca1
 6. Bob vérifie la signature d'Alice avec la clé publique de ca1
-7. Bob vérifie la validité et non-révocation du certificat d'Alice
+7. Bob vérifie la validité et la non-révocation du certificat d'Alice
 8. Bob vérifie que le nom de domaine correspond (<www.alice.com>)
 9. Bob extrait la clé publique d'Alice
 10. Échange de clé de session et communication chiffrée établie
