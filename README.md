@@ -190,9 +190,9 @@ Bonjour de Xavier
 
 ## Q12 - Chaine de Certificats
 
-Le rôle de `-showcerts` est d'afficher le certificat dans la console. Attention cela ne guarantie pas la validité des certificats, `-showcerts` ne gère que leur affichage.
+Le rôle de `-showcerts` est d'afficher le certificat dans la console. Attention cela ne garantie pas la validité des certificats, `-showcerts` ne gère que leur affichage.
 
-La section suivant nous apprend que la chaine reçu contient 3 ceretificats, ce qui est confirmé par la présence de 3 balise '-----BEGIN CERTIFICATE-----'.
+La section suivante nous apprend que la chaine reçu contient 3 ceretificats, ce qui est confirmé par la présence de 3 balise '-----BEGIN CERTIFICATE-----'.
 
 ```txt
 depth=2 C = US, ST = New Jersey, L = Jersey City, O = The USERTRUST Network, CN = USERTrust RSA Certification Authority
@@ -203,7 +203,19 @@ depth=0 C = FR, ST = Auvergne-Rh\C3\B4ne-Alpes, O = Universit\C3\A9 Grenoble Alp
 verify return:1
 ```
 
+## Q13 - Informations d'un certificat
+
+On entre la commande :
+
+```txt
+[etudiant@tls-ca-luquem ~]$ openssl x509 -in cert0.pem -noout -text
+...
+```
+
+Le x509 de la commande concerne la norme de format des certificats à clé publique X.509.
+Le CN indique le nom commun (Common Name) du certificat, qui dans ce cas est "*.univ-grenoble-alpes.fr".
+Le certificat est émis par "GEANT OV RSA CA 4".
+
 ## Q14 - Titulaire du certificat
 
 Le `s` indique le "subject" (le titulaire/entité visée par le certificat) et le `i` indique l’"issuer" (l’autorité de certification qui a émis et signé ce certificat).
-
