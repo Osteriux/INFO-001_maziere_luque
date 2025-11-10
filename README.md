@@ -111,3 +111,23 @@ Chiffrer la clé publique n'a pas d'intérêt, puisqu'elle est destinée à êtr
 ## Q7 - Encodage
 
 Comme on peut le voir à l'extension utilisée (.pem), les clés sont au format PEM (Privacy Enhanced Mail). Ce format utilise l'encodage Base64 pour représenter les données binaires de manière textuelle (représnetation ASCII), ce qui facilite leur transmission et leur stockage dans des fichiers texte. Le format PEM inclut également des en-têtes et des pieds de page pour indiquer le type de contenu.
+
+## Q8 - Clé publique
+
+En utilisant la commande suivante, on peut afficher la clé publique, contenant bien le module (n) et l'exposant public (e) :
+
+```txt
+[etudiant@tls-ca-luquem ~]$ openssl rsa -pubin -in pub.pem -text -noout
+Public-Key: (1024 bit)
+Modulus:
+    00:bd:24:c1:dd:8b:0b:0d:bd:65:aa:c2:9d:fb:34:
+    40:bb:75:d2:82:ab:c2:3e:b6:01:25:ff:1e:34:57:
+    b3:ef:9e:f0:c7:0c:93:aa:80:da:52:73:e1:e8:53:
+    e0:77:48:d7:ad:85:99:93:27:00:d6:ce:ec:9a:e0:
+    63:2d:c2:50:26:5d:4e:64:6b:9d:0a:e1:cf:93:8e:
+    f0:5b:25:17:84:67:42:fa:18:f5:64:9c:5b:6c:51:
+    3e:fd:d5:6d:50:12:af:bd:72:b4:5f:21:0b:d7:d8:
+    96:fb:8a:91:b0:d6:f5:a7:15:52:f1:26:80:71:2c:
+    b9:b9:a0:83:7d:d0:cd:fa:57
+Exponent: 65537 (0x10001)
+```
