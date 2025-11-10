@@ -137,3 +137,53 @@ Avoir un fichier à part pour la clé publique est pratique car cela permet de f
 ## Q9 - Chiffrement RSA
 
 Pour envoyer un massage confidentiel avec RSA il faut le chiffrer à l'aide de la clé publique de la personne avec qui on souhaite communiquer.
+
+## Q10 - Encryption d'un message
+
+Une fois la clé publique de la machine distante obtenue avec wget, on peut chiffrer un message à sa destination.
+On commence par créer le fichier clair.txt :
+
+```txt
+[etudiant@tls-ca-luquem ~]$ touch clair.txt
+[etudiant@tls-ca-luquem ~]$ echo "Bonjour de luquem" > clair.txt
+[etudiant@tls-ca-luquem ~]$ cat clair.txt
+Bonjour de luquem
+```
+
+On peut ensuite chiffrer le message et vérifier que le contenu chiffré est différent à chaque exécution (grâce au padding aléatoire utilisé par OpenSSL) :
+
+```txt
+[etudiant@tls-ca-luquem ~]$ openssl pkeyutl -encrypt -pubin -inkey pub.mazierex.pem -in clair.txt -out cipher.bin
+[etudiant@tls-ca-luquem ~]$ hexdump cipher.bin
+0000000 3ca1 8ff8 0f95 e50d 94b6 b52d 11e8 9627
+0000010 db2c d801 e44a 6ac8 c72c af2f 1aad 841d
+0000020 50f0 de9d 67fa 5688 5f36 2b21 c41f af0d
+0000030 0811 c1cf ba9a 805a 09e5 5a03 0367 fdd3
+0000040 0a53 f9df ca94 0ebd f029 7938 3ce8 10d1
+0000050 9c82 ca1f 8d0e a191 b934 8a5f f608 47d0
+0000060 a7ba b2a5 31c5 3b37 5972 8382 10f0 3ae0
+0000070 4913 0fbe 9c23 362f 7b5d bec9 84f1 202a
+0000080
+[etudiant@tls-ca-luquem ~]$ openssl pkeyutl -encrypt -pubin -inkey pub.mazierex.pem -in clair.txt -out cipher.bin.2
+[etudiant@tls-ca-luquem ~]$ hexdump cipher.bin.2
+0000000 b0ba 1f60 b138 9cf8 0e4e ddc5 5458 136f
+0000010 7951 625b c8f1 9669 305e eeef fbcc 064f
+0000020 39ad cf74 f781 17ca 8331 a248 a9d2 bd26
+0000030 1216 4e62 c453 b1f9 1476 4655 85b1 c3e6
+0000040 4913 ee08 bafd 73b9 c885 7f22 ac55 e2d9
+0000050 9097 bf03 ab16 ca05 b4eb dad6 a84a df3e
+0000060 48a9 d0a0 9e11 6ef1 2a9a c2c4 eb55 62a2
+0000070 3888 208a 56d9 6e05 f2eb 4cd7 a85d 7c25
+0000080
+```
+
+## Q11 - Décryptage d'un message
+
+Une fois le message chiffré reçu, on peut le déchiffrer avec la clé privée :
+
+```txt
+[etudiant@tls-ca-luquem ~]$ openssl pkeyutl -decrypt -inkey rsa_keys_cyphered.pem -in cipher.bin.1 -out clair.txt.1
+Enter pass phrase for rsa_keys_cyphered.pem:
+[etudiant@tls-ca-luquem ~]$ cat clair.txt.1 
+Bonjour de Xavier
+```
