@@ -187,3 +187,19 @@ Enter pass phrase for rsa_keys_cyphered.pem:
 [etudiant@tls-ca-luquem ~]$ cat clair.txt.1 
 Bonjour de Xavier
 ```
+
+## Q12 - Chaine de Certificats
+
+Le rôle de `-showcerts` est d'afficher le certificat dans la console. Attention cela ne guarantie pas la validité des certificats, `-showcerts` ne gère que leur affichage.
+
+La section suivant nous apprend que la chaine reçu contient 3 ceretificats, ce qui est confirmé par la présence de 3 balise '-----BEGIN CERTIFICATE-----'.
+
+```txt
+depth=2 C = US, ST = New Jersey, L = Jersey City, O = The USERTRUST Network, CN = USERTrust RSA Certification Authority
+verify return:1
+depth=1 C = NL, O = GEANT Vereniging, CN = GEANT OV RSA CA 4
+verify return:1
+depth=0 C = FR, ST = Auvergne-Rh\C3\B4ne-Alpes, O = Universit\C3\A9 Grenoble Alpes, CN = *.univ-grenoble-alpes.fr
+verify return:1
+```
+
