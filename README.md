@@ -107,3 +107,7 @@ Verifying - Enter pass phrase:
 ```
 
 Chiffrer la clé publique n'a pas d'intérêt, puisqu'elle est destinée à être partagée publiquement. En revanche, chiffrer la clé privée avec un mot de passe ajoute une couche de sécurité supplémentaire, puisque même si la machine est compromise, un attaquant ne pourra pas utiliser la clé privée sans connaître le mot de passe.
+
+## Q7 - Encodage
+
+Comme on peut le voir à l'extension utilisée (.pem), les clés sont au format PEM (Privacy Enhanced Mail). Ce format utilise l'encodage Base64 pour représenter les données binaires de manière textuelle (représnetation ASCII), ce qui facilite leur transmission et leur stockage dans des fichiers texte. Le format PEM inclut également des en-têtes et des pieds de page pour indiquer le type de contenu.
