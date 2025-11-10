@@ -203,3 +203,7 @@ depth=0 C = FR, ST = Auvergne-Rh\C3\B4ne-Alpes, O = Universit\C3\A9 Grenoble Alp
 verify return:1
 ```
 
+## Q14 - Titulaire du certificat
+
+Le `s` indique le "subject" (le titulaire/entité visée par le certificat) et le `i` indique l’"issuer" (l’autorité de certification qui a émis et signé ce certificat).
+
