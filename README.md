@@ -111,3 +111,23 @@ Chiffrer la clé publique n'a pas d'intérêt, puisqu'elle est destinée à êtr
 ## Q7 - Encodage
 
 Comme on peut le voir à l'extension utilisée (.pem), les clés sont au format PEM (Privacy Enhanced Mail). Ce format utilise l'encodage Base64 pour représenter les données binaires de manière textuelle (représnetation ASCII), ce qui facilite leur transmission et leur stockage dans des fichiers texte. Le format PEM inclut également des en-têtes et des pieds de page pour indiquer le type de contenu.
+
+## Q8 - Clé publique
+
+Le fichier de la clé publique contient le modulo $n$ et l'exposant $e$ comme annoncé plus haut.
+
+```txt
+Public-Key: (1024 bit)
+Modulus:
+    00:e1:7f:97:ce:56:af:ce:a4:37:6c:1f:9c:d5:f8:
+    b8:86:18:b8:5e:aa:cf:b3:79:c4:30:9b:ac:95:5d:
+    39:03:7d:1e:2c:20:93:2b:e3:e0:a8:ef:77:e7:a6:
+    8f:87:50:76:8f:9b:a6:64:03:98:dd:0b:88:0d:d6:
+    8b:cf:8f:f4:73:d6:ca:65:a0:8d:54:8b:d3:16:27:
+    4c:91:03:e7:6c:59:15:aa:f7:f3:18:e7:63:0a:13:
+    2b:d8:2c:8e:2f:d8:79:e9:e8:14:f5:f3:28:fa:77:
+    e7:88:8b:f9:c4:41:7c:cd:89:ce:72:26:dd:2b:0f:
+    f5:6c:a6:9b:ae:f1:50:86:2d
+Exponent: 65537 (0x10001)
+```
+Avoir un fichier à part pour la clef publique est pratique car cela permet de faciliter son partage sans resquer de transmettre des informations de la clé privée.
