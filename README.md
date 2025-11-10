@@ -132,4 +132,4 @@ Modulus:
 Exponent: 65537 (0x10001)
 ```
 
-Avoir un fichier à part pour la clef publique est pratique car cela permet de faciliter son partage sans resquer de transmettre des informations de la clé privée.
+Avoir un fichier à part pour la clé publique est pratique car cela permet de faciliter son partage sans risquer de transmettre des informations de la clé privée.
