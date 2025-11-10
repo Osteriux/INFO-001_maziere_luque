@@ -133,3 +133,7 @@ Exponent: 65537 (0x10001)
 ```
 
 Avoir un fichier à part pour la clef publique est pratique car cela permet de faciliter son partage sans resquer de transmettre des informations de la clé privée.
+
+## Q9 - Chiffrement RSA
+
+Pour envoyer un massage confidentiel avec RSA il faut le chiffrer à l'aide de la clé publique de la personne avec qui on souhaite communiquer.
