@@ -114,20 +114,22 @@ Comme on peut le voir à l'extension utilisée (.pem), les clés sont au format 
 
 ## Q8 - Clé publique
 
-Le fichier de la clé publique contient le modulo $n$ et l'exposant $e$ comme annoncé plus haut.
+En utilisant la commande suivante, on peut afficher la clé publique, contenant bien le module (n) et l'exposant public (e) :
 
 ```txt
+[etudiant@tls-ca-luquem ~]$ openssl rsa -pubin -in pub.pem -text -noout
 Public-Key: (1024 bit)
 Modulus:
-    00:e1:7f:97:ce:56:af:ce:a4:37:6c:1f:9c:d5:f8:
-    b8:86:18:b8:5e:aa:cf:b3:79:c4:30:9b:ac:95:5d:
-    39:03:7d:1e:2c:20:93:2b:e3:e0:a8:ef:77:e7:a6:
-    8f:87:50:76:8f:9b:a6:64:03:98:dd:0b:88:0d:d6:
-    8b:cf:8f:f4:73:d6:ca:65:a0:8d:54:8b:d3:16:27:
-    4c:91:03:e7:6c:59:15:aa:f7:f3:18:e7:63:0a:13:
-    2b:d8:2c:8e:2f:d8:79:e9:e8:14:f5:f3:28:fa:77:
-    e7:88:8b:f9:c4:41:7c:cd:89:ce:72:26:dd:2b:0f:
-    f5:6c:a6:9b:ae:f1:50:86:2d
+    00:bd:24:c1:dd:8b:0b:0d:bd:65:aa:c2:9d:fb:34:
+    40:bb:75:d2:82:ab:c2:3e:b6:01:25:ff:1e:34:57:
+    b3:ef:9e:f0:c7:0c:93:aa:80:da:52:73:e1:e8:53:
+    e0:77:48:d7:ad:85:99:93:27:00:d6:ce:ec:9a:e0:
+    63:2d:c2:50:26:5d:4e:64:6b:9d:0a:e1:cf:93:8e:
+    f0:5b:25:17:84:67:42:fa:18:f5:64:9c:5b:6c:51:
+    3e:fd:d5:6d:50:12:af:bd:72:b4:5f:21:0b:d7:d8:
+    96:fb:8a:91:b0:d6:f5:a7:15:52:f1:26:80:71:2c:
+    b9:b9:a0:83:7d:d0:cd:fa:57
 Exponent: 65537 (0x10001)
 ```
+
 Avoir un fichier à part pour la clef publique est pratique car cela permet de faciliter son partage sans resquer de transmettre des informations de la clé privée.
