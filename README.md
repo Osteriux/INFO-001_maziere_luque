@@ -89,3 +89,21 @@ modulus:
     96:fb:8a:91:b0:d6:f5:a7:15:52:f1:26:80:71:2c:
     b9:b9:a0:83:7d:d0:cd:fa:57
 ```
+
+Comme rappelé ci-dessus, le calcul pour chiffre un message M avec la clé publique (e, n) est :
+$$C = M^e \bmod n$$
+
+L'exposant public n'est pas difficile à "deviner", puisqu'il est fourni dans la clé publique (donc pas secret). Ce n'est pas un problème puisque le décryptage ne l'utilise pas.
+
+## Q6 - Chiffrer une clé
+
+On peut encrypter une clé RSA avec un mot de passe en utilisant la commande suivante (avec AES-128 dans ce cas-ci) :
+
+```txt
+[etudiant@tls-ca-luquem ~]$ openssl rsa -in rsa_keys.pem -aes128 -out rsa_keys_cyphered.pem
+writing RSA key
+Enter pass phrase:
+Verifying - Enter pass phrase:
+```
+
+Chiffrer la clé publique n'a pas d'intérêt, puisqu'elle est destinée à être partagée publiquement. En revanche, chiffrer la clé privée avec un mot de passe ajoute une couche de sécurité supplémentaire, puisque même si la machine est compromise, un attaquant ne pourra pas utiliser la clé privée sans connaître le mot de passe.
