@@ -289,3 +289,9 @@ Pour le certificat de dernier niveau (n=2, USERTrust RSA CA) :
 Le certificat qui permet de valider cert2.pem est le certificat racine AAA Certificate Services (C=GB, ST=Greater Manchester, L=Salford, O=Comodo CA Limited, CN=AAA Certificate Services). Ce certificat racine se trouve dans le truststore du système.
 
 Ce certificat racine AAA Certificate Services est pré-installé, car il s'agit d'une autorité de certification reconnue mondialement (Comodo/Sectigo). C'est ce qui permet d'établir la confiance initiale dans toute la chaîne.
+
+## Q19 - Certificat auto-signé
+
+On remarque que le champ "subject" et "issuer" sont identiques, il s'agit donc d'un certificat auto-signé.
+La methode de signature reste la même :
+$$S = E(H(Certificat))$$
