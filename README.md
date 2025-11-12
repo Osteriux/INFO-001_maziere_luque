@@ -229,3 +229,10 @@ Le `s` indique le "subject" (le titulaire/entité visée par le certificat) et l
 - Le certificat est valide 1 an, du 18/12/2024 au 18/12/2025.
 - Le lien .crl (CRL Distribution Points) sert à vérifier la révocation du certificat ; l'AIA contient aussi un URI OCSP pour des vérifications en ligne.
 
+## Q16 - Signature du certificat
+
+- Le certificat est signé par : C=NL, O=GEANT Vereniging, CN=GEANT OV RSA CA 4.
+- La signature a été calculée avec la formule suivante :
+$$S = H(TBSCertificate)^d \mod n$$
+
+
