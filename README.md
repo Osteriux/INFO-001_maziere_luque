@@ -304,3 +304,7 @@ $$S = E(H(Certificat))$$
 - Durée de validité : Not Before: 1/11/2025 — Not After: 27/10/2045 (≈20 ans).
 - Pourquoi racine / auto-signé : Subject = Issuer, Basic Constraints contient "CA:TRUE" et les identifiants d'autorité/sujet concordent → auto-signé / certificat racine.
 - X509v3 Key Usage : Digital Signature, Certificate Sign, CRL Sign.
+
+## Q21 - Fichier de configuration OpenSSL
+
+Le chemin utilisé est `/home/etudiant/ca`. Nous plaçons la clé privée dans le fichier `private/intermediate.key.pem` et le certificat de la CA dans le fichier `certs/intermediate.cert.pem`.
