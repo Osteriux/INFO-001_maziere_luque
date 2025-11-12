@@ -295,3 +295,12 @@ Ce certificat racine AAA Certificate Services est pré-installé, car il s'agit 
 On remarque que le champ "subject" et "issuer" sont identiques, il s'agit donc d'un certificat auto-signé.
 La methode de signature reste la même :
 $$S = E(H(Certificat))$$
+
+## Q20 - 
+
+- Type de clé : clé elliptique (EC, id-ecPublicKey).
+- Taille : 256 bits.
+- Courbe : prime256v1 (NIST P-256).
+- Durée de validité : Not Before: 1/11/2025 — Not After: 27/10/2045 (≈20 ans).
+- Pourquoi racine / auto-signé : Subject = Issuer, Basic Constraints contient "CA:TRUE" et les identifiants d'autorité/sujet concordent → auto-signé / certificat racine.
+- X509v3 Key Usage : Digital Signature, Certificate Sign, CRL Sign.
