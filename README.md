@@ -219,3 +219,13 @@ Le certificat est émis par "GEANT OV RSA CA 4".
 ## Q14 - Titulaire du certificat
 
 Le `s` indique le "subject" (le titulaire/entité visée par le certificat) et le `i` indique l’"issuer" (l’autorité de certification qui a émis et signé ce certificat).
+
+## Q15 - Contenu du certificat
+
+- Le certificat contient la clé publique RSA (modulus n et exponent e).
+- Algorithme de signature : sha384WithRSAEncryption (signature X.509, RSA + SHA-384).
+- CN (subject) : *.univ-grenoble-alpes.fr
+- Noms additionnels (SAN) : DNS:*.univ-grenoble-alpes.fr, DNS:univ-grenoble-alpes.fr
+- Le certificat est valide 1 an, du 18/12/2024 au 18/12/2025.
+- Le lien .crl (CRL Distribution Points) sert à vérifier la révocation du certificat ; l'AIA contient aussi un URI OCSP pour des vérifications en ligne.
+
