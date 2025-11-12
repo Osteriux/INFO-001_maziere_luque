@@ -296,7 +296,7 @@ On remarque que le champ "subject" et "issuer" sont identiques, il s'agit donc d
 La methode de signature reste la même :
 $$S = E(H(Certificat))$$
 
-## Q20 - 
+## Q20 - Certificat root
 
 - Type de clé : clé elliptique (EC, id-ecPublicKey).
 - Taille : 256 bits.
@@ -308,3 +308,8 @@ $$S = E(H(Certificat))$$
 ## Q21 - Fichier de configuration OpenSSL
 
 Le chemin utilisé est `/home/etudiant/ca`. Nous plaçons la clé privée dans le fichier `private/intermediate.key.pem` et le certificat de la CA dans le fichier `certs/intermediate.cert.pem`.
+
+## Q22 - Intermediate private key
+
+Pour généere la clé privé de l'authoritée de certification intermédiaire on a utilisé la commande suivante : `openssl genpkey -algorithm RSA -out private/intermediate.key.pem -pkeyopt rsa_keygen_bits:3072`  
+Ensuite pour la chiffrer on a utilisé : `openssl rsa -in private/intermediate.key.pem -aes128 -out private/intermediate.key.pem`
