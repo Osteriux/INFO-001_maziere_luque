@@ -233,6 +233,25 @@ Le `s` indique le "subject" (le titulaire/entité visée par le certificat) et l
 
 - Le certificat est signé par : C=NL, O=GEANT Vereniging, CN=GEANT OV RSA CA 4.
 - La signature a été calculée avec la formule suivante :
-$$S = H(TBSCertificate)^d \mod n$$
+$$S = E(H(Certificat))$$
 
+Où :
 
+- S est la signature du certificat
+- H est la fonction de hachage SHA-384
+- Certificat représente le contenu du certificat à signer
+- E représente l'opération de chiffrement RSA avec la clé privée de la CA
+
+## Q17 - Certificat de la CA intermédiaire
+
+Pour afficher le certificat de la CA qui a délivré le certificat de <www.univ-grenoble-alpes.fr>, on utilise la commande :
+
+```txt
+[etudiant@tls-ca-luquem ~]$ openssl x509 -in cert1.pem -noout -text
+```
+
+On retrouve les informations suivantes :
+
+- Sujet/Objet du certificat : C = NL, O = GEANT Vereniging, CN = GEANT OV RSA CA 4
+- Taille de la clé publique : 4096 bits
+- Signé par : C = US, ST = New Jersey, L = Jersey City, O = The USERTRUST Network, CN = USERTrust RSA Certification Authority
