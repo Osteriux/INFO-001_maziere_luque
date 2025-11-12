@@ -255,3 +255,37 @@ On retrouve les informations suivantes :
 - Sujet/Objet du certificat : C = NL, O = GEANT Vereniging, CN = GEANT OV RSA CA 4
 - Taille de la clé publique : 4096 bits
 - Signé par : C = US, ST = New Jersey, L = Jersey City, O = The USERTRUST Network, CN = USERTrust RSA Certification Authority
+
+## Q18 - Validation de la chaîne de certificats
+
+Pour valider la chaîne de certificats, chaque certificat de niveau n doit contenir les informations nécessaires pour valider le certificat de niveau n-1 :
+
+Niveau 0 (cert0.pem) : *.univ-grenoble-alpes.fr
+
+- Subject : CN = *.univ-grenoble-alpes.fr
+- Issuer : CN = GEANT OV RSA CA 4
+- Signature : signée avec la clé privée de GEANT OV RSA CA 4
+- Validation : nécessite la clé publique de GEANT OV RSA CA 4 (contenue dans cert1.pem)
+
+Niveau 1 (cert1.pem) : GEANT OV RSA CA 4
+
+- Subject : CN = GEANT OV RSA CA 4
+- Issuer : CN = USERTrust RSA Certification Authority
+- Signature : signée avec la clé privée de USERTrust RSA CA
+- Clé publique : permet de valider le certificat de niveau 0
+- Validation : nécessite la clé publique de USERTrust RSA CA (contenue dans cert2.pem)
+
+Niveau 2 (cert2.pem) : USERTrust RSA Certification Authority
+
+- Subject : CN = USERTrust RSA Certification Authority
+- Issuer : CN = AAA Certificate Services (Comodo CA Limited)
+- Signature : signée avec la clé privée de AAA Certificate Services
+- Clé publique : permet de valider le certificat de niveau 1
+- Validation : nécessite la clé publique de AAA Certificate Services (certificat racine)
+- Validité : du 12/03/2019 au 31/12/2028
+
+Pour le certificat de dernier niveau (n=2, USERTrust RSA CA) :
+
+Le certificat qui permet de valider cert2.pem est le certificat racine AAA Certificate Services (C=GB, ST=Greater Manchester, L=Salford, O=Comodo CA Limited, CN=AAA Certificate Services). Ce certificat racine se trouve dans le truststore du système.
+
+Ce certificat racine AAA Certificate Services est pré-installé, car il s'agit d'une autorité de certification reconnue mondialement (Comodo/Sectigo). C'est ce qui permet d'établir la confiance initiale dans toute la chaîne.
