@@ -44,7 +44,7 @@ Le rôle de la methode Diffie-Hellman est d'echanger une clé de manière sécur
 Un certificat numérique contient plusieurs informations importantes, notamment :
 
 - Le titulaire du certificat (personne ou organisation)
-- Le hash du certificat pour vérifier son intégrité
+- Le hash du certificat pour vérifier son intégrité (signature)
 - La clé publique associée au titulaire
 - La période de validité du certificat (date de début et date d'expiration)
 - L'autorité de certification qui a émis le certificat
